@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app>
+<head>
+  <meta charset="UTF-8">
+  <title>Angular.js sample</title>
+</head>
+<body>
+  <form>
+    <label for="name">名前：</label>
+    <input type="text" id="name" name="name" ng-model="name">
+    <div ng-bind="'こんにちは、' + name + 'さん！'"></div>
+  </form>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+</body>
+</html>

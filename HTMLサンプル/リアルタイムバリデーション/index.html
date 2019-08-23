@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <title>realtime-validation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="page-header">
+        <h1>オブジェクト指向</h1>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="">アカウントを作成</label>
+        </div>
+        <div class="col">
+          <input type="text" placeholder="4文字以上8文字以内で入力してください" data-minlength="4" data-maxlength="8" required>
+          <ul>
+            <li data-error="required">必須項目です</li>
+            <li data-error="minlength">4文字以上で入力してください</li>
+            <li data-error="maxlength">8文字以内で入力してください</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="">パスワードを作成</label>
+        </div>
+        <div class="col">
+          <input type="text" placeholder="4文字以上8文字以内で入力してください" data-minlength="4" data-maxlength="8" required>
+          <ul>
+            <li data-error="required">必須項目です</li>
+            <li data-error="minlength">4文字以上で入力してください</li>
+            <li data-error="maxlength">8文字以内で入力してください</li>
+          </ul>
+        </div>
+      </div>
+      <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="scripts/app.js"></script>
+    </div>
+  </body>
+</html>

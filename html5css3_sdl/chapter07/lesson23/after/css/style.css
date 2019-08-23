@@ -1,0 +1,131 @@
+/* 属性セレクタ
+---------------------------*/
+
+/*〜で始まる*/
+li[class^="START"]{
+	border-color:#f00;
+}
+
+/*〜で終わる*/
+li[class$="END"]{
+	border-color:#f00;
+}
+
+/*〜を含む*/
+li[class*="CNT"]{
+	border-color:#f00;
+}
+
+/* 練習 =========== */
+
+/*外部サイトへのリンク*/
+a[href^="http"]{
+	padding-right:20px;
+	background:url(../img/icon_blank.gif) right center no-repeat;	
+}
+
+/*PDFファイルへのリンク*/
+a[href$=".pdf"]{
+	padding-left:20px;
+	background:url(../img/icon_pdf.gif)  no-repeat;	
+}
+
+/* 擬似クラス
+---------------------------*/
+
+/* 〜child系 =========== */
+/*最後の子要素*/
+.child :last-child{
+	border-color:#f00;
+}
+
+/*3番目の子要素*/
+.child :nth-child(3){
+	color:#f00;
+}
+
+/*後ろから3番目の子要素*/
+.child :nth-last-child(3){
+	color:#00f;
+}
+
+/*偶数番目の子要素*/
+.child :nth-child(even){
+	background-color:#ccc;
+}
+
+/*2番目を先頭に３つおきの子要素*/
+.child :nth-child(3n+2){
+	border:#000 3px solid;
+}
+
+/* 〜of-type系 =========== */
+/*最初の要素*/
+.ofType :first-of-type{
+	border-color:#f00;
+}
+
+/*偶数個目の要素*/
+.ofType :nth-of-type(even){
+	border-color:#00f;
+}
+
+/*唯一の要素*/
+.ofType :only-of-type{
+	color:#f00;
+}
+
+/* 練習 =========== */
+/*しましまテーブル*/
+.stripe tr:nth-child(even){
+	background-color:#eee;
+}
+
+/*最後の1行を赤文字に*/
+.lastRed :last-of-type{
+	color:#f00;
+}
+
+/* その他の擬似クラス
+---------------------------*/
+/*最後の１行以外全てを選択*/
+.nots li:not(:last-child){
+	border-color:#f00;
+}
+
+/*リンク先を開く*/
+.target dd:target{
+	display:block;
+}
+
+/*有効な選択肢のラベルのスタイル*/
+.ui input:enabled+label{
+	cursor:pointer;
+}
+
+.ui input:enabled+label:hover{
+	color:#00c4ab;
+}
+
+/*無効な選択肢のラベルのスタイル*/
+.ui input:disabled+label{
+	color:#ccc;
+}
+
+/*チェックされた選択肢のラベルのスタイル*/
+.ui input:checked+label{
+	background:#cceebb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

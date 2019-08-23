@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>うちのにゃんこ</title>
+<meta name="keywords" content="にゃんこ,ネコ,ねこ,猫,ねこ紹介,ねこ自慢">
+<meta name="description" content="我が家のアイドル、にゃんこ達を紹介します！可愛い猫写真を沢山掲載しています。">
+<link href="style.css" rel="stylesheet" media="all">
+</head>
+
+<body>
+<div id="wrap">
+<h1>猫写真投稿フォーム</h1>
+<p>必要事項を記入して投稿ボタンを押してください。</p>
+
+<form id="entryForm" action="#" method="post">
+<table class="entryForm">
+<tr>
+<th>猫ちゃんのお名前：</th>
+<td><input type="text" name="cat-name"></td>
+</tr>
+<tr>
+<th>お住まい：</th>
+<td>
+<select name="pref">
+<option value="" selected>選択してください</option>
+<option value="北海道">北海道</option>
+<option value="東北">東北</option>
+<option value="関東甲信越">関東甲信越</option>
+<option value="東海・北陸">東海・北陸</option>
+<option value="近畿">近畿</option>
+<option value="中国・四国">中国・四国</option>
+<option value="九州・沖縄">九州・沖縄</option>
+</select>
+</td>
+</tr>
+<tr>
+<th>性別：</th>
+<td>
+<input type="radio" name="sex" id="sex1" value="男の子" checked>
+<label for="sex1">男の子</label>
+<input type="radio" name="sex" id="sex2" value="女の子">
+<label for="sex2">女の子</label>
+</td>
+</tr>
+<tr>
+<th>好物：</th>
+<td>
+<input type="checkbox" name="like1" id="like1" value="お魚">
+<label for="like1">お魚</label>
+<input type="checkbox" name="like2" id="like2" value="お肉">
+<label for="like2">お肉</label>
+<input type="checkbox" name="like3" id="like3" value="ミルク">
+<label for="like3">ミルク</label>
+<input type="checkbox" name="like4" id="like4" value="カリカリ">
+<label for="like4">カリカリ</label>
+<input type="checkbox" name="like5" id="like5" value="猫缶">
+<label for="like5">猫缶</label>
+<input type="checkbox" name="like6" id="like6" value="甘いもの">
+<label for="like6">甘いもの</label>
+</td>
+</tr>
+<tr>
+<th>写真：</th>
+<td><input type="file" name="photo"></td>
+</tr>
+<tr>
+<th>飼い主のお名前：</th>
+<td><input type="text" name="name"></td>
+</tr>
+<tr>
+<th>メールアドレス：</th>
+<td><input type="email" name="email"></td>
+</tr>
+<tr>
+<th>コメント：</th>
+<td><textarea name="comment" rows="4" cols="40"></textarea></td>
+</tr>
+</table>
+
+<div class="btns">
+<input type="reset" value="クリア" class="btn btn-clear">
+<input type="submit" value="投稿" class="btn btn-send">
+</div>
+
+</form>
+
+<p>Copyright &copy; UCHI NO NYAN'S All Rights Reserved.</p>
+</div>
+</body>
+</html>

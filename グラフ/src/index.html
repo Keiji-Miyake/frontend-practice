@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+      table {
+        border: 1px solid #ccc;
+        width: 100%;
+      }
+      td {
+        width : 50%;
+        height: 50px;
+      }
+      .graph {
+        display: block;
+        width: 0;
+        height: 10px;
+        background-color: orange;
+        transition: width 1s;
+      }
+    </style>
+</head>
+        <p><input type="text" id="input_price">万円</p>
+        <span id="error" class="error"></span>
+        <button type="button" name="button" id="button">実行</button>
+    </div>
+    <div id="result" class="result">
+      <p id="output_price"></p>
+      <table>
+        <tr>
+          <th>未来駅</th>
+          <td class="graph_area"><span class="graph"></span></td>
+          <td class="floar_space_area"><span class="tubo"></span><span class="heibei"></span></td>
+        </tr>
+        <tr>
+          <th>過去駅</th>
+          <td class="graph_area"><span class="graph"></span></td>
+          <td class="floar-space_area"><span class="tubo"></span><span class="heibei"></span></td>
+        </tr>
+      </table>
+    </div>
+</body>
+<script>
+(function(){
+  var arr_graph_size = [];
+  var arr_tubo = [];
+  var arr_heibei = [];
+//  window.onload = function() {
+    var elm_in_price = document.getElementById('input_price');
+    var elm_error = document.getElementById('error');
+    var elm_button = document.getElementById('button');
+    var elm_result = document.getElementById('result');
+    var elm_result_span = document.querySelectorAll('#result span');
+    var elm_graph = [];
+    var elm_tubo = [];
+    var elm_heibei = [];
+    console.log(elm_result_span);
+    for (var i = 0, j = 0, k = 0, l = 0; i < elm_result_span.length; i++){
+        if (elm_result_span[i].className == 'graph'){
+            elm_graph[j] = elm_result_span[i];
+            j++;
+        }
+        if (elm_result_span[i].className == 'tubo'){
+            elm_tubo[k] = elm_result_span[i];
+            k++;
+        }
+        if (elm_result_span[i].className == 'heibei'){
+            elm_heibei[l] = elm_result_span[i];
+            l++;
+        }
+    }
+    console.log(elm_graph);
+    console.log(elm_tubo);
+    console.log(elm_heibei);
+    var elm_o_price = document.getElementById('output_price');
+    elm_button.addEventListener("click", result, false);
+    function result() {
+      var tubo_unit_price = {
+        "未来駅":230000,
+        "過去駅":178000,
+      };
+      var heibei_unit_price = {
+        "未来駅":180000,
+        "過去駅":105000,
+      };
+      var graph_len = Object.keys(tubo_unit_price).length;
+      var count = 0;
+      var price = elm_in_price.value;
+      if(price.match(/[^0-9]+/)) {
+        elm_in_price.value = price.replace(/[^0-9]+/g,"");
+        elm_error.innerHTML = "半角数字で入力してください。"
+        return;
+      } else if(price === "") {
+        elm_error.innerHTML = "値を入力してください。"
+        return;
+      }
+      elm_error.innerHTML = "";
+      elm_o_price.innerHTML = price + "万円で購入できる土地は。。。";
+      price = price / 2 * 10000;
+      console.log(price);
+      var keys = Object.keys(tubo_unit_price);
+      for(var i = 0; i < graph_len; i++) {
+        var tubosuu = price / tubo_unit_price[keys[i]];
+        var heibeisuu = price / heibei_unit_price[keys[i]];
+        console.log("坪数" + tubosuu);
+        console.log("平米数" + heibeisuu);
+        tubosuu = Math.round(tubosuu);
+        heibeisuu = heibeisuu.toFixed(1);
+        console.log("坪数" + tubosuu);
+        console.log("平米数" + heibeisuu);
+        elm_tubo[i].innerHTML = tubosuu;
+        elm_heibei[i].innerHTML = heibeisuu;
+      }
+      for(var key in heibei_unit_price) {
+        if (Object.hasOwnProperty(key)) {
+
+        }
+      }
+    }
+//  };
+})();
+</script>
+
+</html>

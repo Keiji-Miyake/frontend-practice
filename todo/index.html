@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Simple TODO App</title>
+</head>
+<body>
+  <!-- テキスト入力 -->
+  <div id="addTodo">
+    <form onSubmit="">
+      <input type="text">
+      <button type="submit">Add Todo</button>
+    </form>
+  </div>
+
+  <!-- TODO一覧 -->
+  <ul id="todoList">
+    <li>First TODO</li>
+    <li style="text-decoration: line-through">Second TODO</li>
+    <li>Third TODO</li>
+  </ul>
+
+  <!-- フィルタリング  -->
+  <p id="links">
+    Show:
+    <span>All</span>, <a href="">Active</a>, <a href="">Completed</a>
+  </p>
+
+  <script src="bundle.js" charset="utf-8"></script>
+  <!-- <script src="debug.js" charset="utf-8"></script> -->
+</body>
+</html>

@@ -1,0 +1,179 @@
+/* Transform（変形）
+---------------------------*/
+
+/*translate()*/
+.trans01{
+	-webkit-transform: translate(30px,0);
+	-ms-transform: translate(30px,0);
+	transform: translate(30px,0);
+}
+
+.trans02{
+	-webkit-transform: translate(0,30px);
+	-ms-transform: translate(0,30px);
+	transform: translate(0,30px);
+}
+
+.trans03{
+	-webkit-transform: translate(30px,-30px);
+	-ms-transform: translate(30px,-30px);
+	transform: translate(30px,-30px);
+}
+
+/*scale()*/
+.scale01{
+	-webkit-transform: scale(0.8, 0.8);
+	-ms-transform: scale(0.8, 0.8);
+	transform: scale(0.8, 0.8);
+}
+
+.scale02{
+	-webkit-transform: scale(0.5, 1);
+	-ms-transform: scale(0.5, 1);
+	transform: scale(0.5, 1);
+}
+
+.scale03{
+	-webkit-transform: scale(1, 1.5);
+	-ms-transform: scale(1, 1.5);
+	transform: scale(1, 1.5);
+}
+
+/*rotate()*/
+.rotate01{
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.rotate02{
+	-webkit-transform: rotate(-15deg);
+	-ms-transform: rotate(-15deg);
+	transform: rotate(-15deg);
+}
+
+/*skew()*/
+.skew01{
+	-webkit-transform: skew(30deg, 0);
+	-ms-transform: skew(30deg, 0);
+	transform: skew(30deg, 0);
+}
+
+.skew02{
+	-webkit-transform: skew(0, 30deg);
+	-ms-transform: skew(0, 30deg);
+	transform: skew(0, 30deg);
+}
+
+.skew03{
+	-webkit-transform: skew(30deg, 30deg);
+	-ms-transform: skew(30deg, 30deg);
+	transform: skew(30deg, 30deg);
+}
+
+
+/* Transform-Origin
+---------------------------*/
+.origin li{
+	width:30%;
+	cursor:pointer;
+}
+
+.origin li:hover{	
+	-webkit-transform: scale(2, 1);
+	-ms-transform: scale(2, 1);
+	transform: scale(2, 1);
+	
+	-webkit-transform-origin:0 0;
+	-ms-transform-origin:0 0;
+	transform-origin:0 0;
+}
+
+
+/* Transition
+---------------------------*/
+/*フワッと色が変わるボタン1（同時）*/
+p.btn01 a{
+	background-color:#9c9;
+	color:#fff;
+	-webkit-transition:1s;
+	transition:1s;
+}
+
+p.btn01 a:hover{
+	background-color:#fc6;
+	color:#000;
+}
+
+/*フワッと色が変わるボタン2（背景色だけ）*/
+p.btn02 a{
+	background-color:#9c9;
+	color:#fff;
+	-webkit-transition:background-color 1s;
+	transition:background-color 1s;
+}
+
+p.btn02 a:hover{
+	background-color:#fc6;
+	color:#000;
+}
+
+/*フワッと色が変わるボタン3（時間差）*/
+p.btn03 a{
+	background-color:#9c9;
+	color:#fff;
+	-webkit-transition:background-color 1s 0s, color 1s 1s;
+	transition:background-color 1s 0s, color 1s 1s;
+	/*
+	-webkit-transition-property: background-color, color;
+	-webkit-transition-duration: 1s, 1s;
+	-webkit-transition-delay: 0s, 1s;
+	
+	transition-property: background-color, color;
+	transition-duration: 1s, 1s;
+	transition-delay: 0s, 1s;
+	*/
+}
+
+p.btn03 a:hover{
+	background-color:#fc6;
+	color:#000;
+}
+
+/*transition-timing-function*/
+
+.timing li{
+	position:relative;
+	left:0;
+}
+
+.timing:hover li{
+	left:500px;
+}
+
+.t01{
+	-webkit-transition:left 1s ease;
+	transition:left 1s ease;
+}
+
+.t02{
+	-webkit-transition:left 1s linear;
+	transition:left 1s linear;
+}
+
+.t03{
+	-webkit-transition:left 1s ease-in;
+	transition:left 1s ease-in;
+}
+
+.t04{
+	-webkit-transition:left 1s ease-out;
+	-ms-transition:left 1s ease-out;
+	transition:left 1s ease-out;
+}
+
+.t05{
+	-webkit-transition:left 1s ease-in-out;
+	transition:left 1s ease-in-out;
+}
+

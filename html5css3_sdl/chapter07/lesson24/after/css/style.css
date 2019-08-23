@@ -1,0 +1,203 @@
+/* テキストの装飾と新しい色・単位
+---------------------------*/
+
+/*text-shadow*/
+.ts01{text-shadow: 2px 2px 3px #999;}
+.ts02{color:#fff; text-shadow:0 0 5px #999;}
+.ts03{color:#ccc; text-shadow:-1px -1px 0 #fff, 1px 1px 0 #aaa;}
+.ts04{color:#ccc; text-shadow:-1px -1px 0 #aaa, 1px 1px 0 #fff;}
+.ts05{
+	color:#fff;
+	text-shadow:
+		1px 1px 0 #999, 
+		-1px 1px 0 #999, 
+		1px -1px 0 #999, 
+		-1px -1px 0 #999;
+}
+.ts06{
+	text-shadow:
+		0 0 5px #fff, 
+		0 0 13px #f03, 
+		0 0 13px #f03, 
+		0 0 13px #f03, 
+		0 0 13px #f03;
+}
+
+/*rgba()*/
+.rgba span{
+	border:#fff 1px solid;
+	padding:10px;
+	background:rgba(255,255,255,0.3);
+}
+
+
+/*hsla()*/
+.hsla01{background:hsla(0,100%,30%,0.7);}
+.hsla02{background:hsla(30,100%,30%,0.7);}
+.hsla03{background:hsla(60,100%,30%,0.7);}
+.hsla04{background:hsla(120,100%,30%,0.7);}
+.hsla05{background:hsla(240,100%,30%,0.7);}
+.hsla06{background:hsla(270,100%,30%,0.7);}
+.hsla07{background:hsla(300,100%,30%,0.7);}
+
+
+/*rem*/
+.em li{
+	font-size:1.2em;
+}
+
+.rem li{
+	font-size:1.2rem;
+}
+
+
+/* ボックスのの装飾とボックスモデル
+---------------------------*/
+/*border-radius*/
+.bdr01{ border-radius:10px; }
+.bdr02{ border-radius:5px 10px 15px 20px; }
+.bdr03{ border-radius:10px 0 20px; }
+.bdr04{ border-radius:10px 0; }
+.bdr05{
+	width:50px;
+	height:50px;
+	border-radius:50px;
+	text-align:center;
+	line-height:50px;
+}
+
+/*box-shadow*/
+.bs01{ box-shadow:2px 2px 5px #999; }
+.bs02{ box-shadow:0 0 10px #999; }
+.bs03{ box-shadow:2px 2px 5px #999 inset; }
+.bs04{ box-shadow:0 0 15px #ccc inset; }
+.bs05{ box-shadow:0 0 0 3px #000; }
+.bs06{
+	box-shadow:
+		0 0 0 1px #000 inset,
+		0 0 0 2px #000,
+		2px 2px 10px #000;
+}
+
+/*box-sizing*/
+.bz li{ 
+	width:300px;
+	padding:10px;
+	border:5px solid #000;
+}
+
+.bz02{
+	box-sizing:border-box;
+}
+
+
+/* 背景画像とグラデーション
+---------------------------*/
+/*multiple-background*/
+.multi-bg{
+	background:
+		url(../img/flower.png)  no-repeat,
+		url(../img/ranikai.jpg) no-repeat;
+}
+
+/*background-size*/
+.bgsize02{ background-size:cover; }
+.bgsize03{ background-size:contain; }
+.bgsize04{ background-size:100% 100%; }
+.bgsize05{ background-size:170px 100px; }
+
+/*linear-gradient()*/
+.grad01{
+	background-color:#f36; /*non-css3 browser*/
+	background:-webkit-gradient(linear, left top, left bottom, from(#f36),to(#fff)); /*old webkit*/
+	background:-webkit-linear-gradient(top,#f36,#fff); /*webkit*/
+	background:linear-gradient(to bottom,#f36,#fff); /*IE10 & future*/
+}
+
+.grad02{
+	background-color:#f36; /*non-css3 browser*/
+	background:-webkit-gradient(
+		linear, 
+		left top, 
+		right top, 
+		from(0%, #f36),
+		color-stop(50%, #fff),
+		to(100%, #f03)); /*old webkit*/
+	background:-webkit-linear-gradient(
+		left,
+		#f36 0%,
+		#fff 50%,
+		#f63 100%); /*webkit*/
+	background:linear-gradient(
+		to right,
+		#f36 0%,
+		#fff 50%,
+		#f63 100%); /*IE10 & future*/
+}
+
+.grad03{
+	background-color:#f36; /*non-css3 browser*/
+	background:-webkit-gradient(
+		linear, 
+		left top, 
+		right bottom, 
+		from(0%, #f36),
+		color-stop(50%, #fff),
+		to(100%, #f03)); /*old webkit*/
+	background:-webkit-linear-gradient(
+		-45deg,
+		#f36 0%,
+		#fff 50%,
+		#f63 100%); /*webkit*/
+	background:linear-gradient(
+		135deg,
+		#f36 0%,
+		#fff 50%,
+		#f63 100%); /*IE10 & future*/
+}
+
+
+/*練習*/
+.button{
+	width:50%;
+	margin:10px auto;
+	text-align:center;
+}
+
+.button a{
+	display:block;
+	padding:10px;
+	border-radius:5px;
+	box-shadow:1px 1px 3px #666;
+	color:#fff;
+	text-decoration:none;
+	text-shadow:1px 1px 0 rgba(0,0,0,0.4);
+	font-family:Helvetica, Arial, san-serif;
+	font-weight:bold;
+	font-size:150%;
+	background-color:#f36;
+	background:-webkit-gradient(
+		linear,
+		left top,
+		left bottom,
+		from(0%, #ffced7),
+		color-stop(49%, #f74657),
+		color-stop(51%, #f10013),
+		to(100%, #fe2951));
+	background:-webkit-linear-gradient(
+		top,
+		#ffced7 0%,
+		#f74657 49%,
+		#f10013 51%,
+		#fe2951 100%);
+	background:linear-gradient(
+		to bottom,
+		#ffced7 0%,
+		#f74657 49%,
+		#f10013 51%,
+		#fe2951 100%);
+}
+
+.button a:hover{
+	text-shadow:0 0 5px #fff;
+}

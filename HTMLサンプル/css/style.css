@@ -1,0 +1,81 @@
+@charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic,700,700italic);
+html {
+  font-size: 62.5%;
+}
+body {
+  width: 960px;
+  font-size: 16px;
+  font-size: 1.6rem;
+  margin: 0 auto;
+}
+
+.clearfix:after {
+    content:" ";
+    display:block;
+    clear:both;
+}
+main {
+
+}
+section {
+  margin-bottom: 40px;
+}
+.btn {
+  background: #00aaff;
+  border-radius: 5px;
+  box-shadow: 0 4px 0 #0088cc;
+  color: white;
+  font-weight: bold;
+  font-family: "メイリオ", sans-serif;
+  width: 200px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.btn:hover {
+  opacity: 0.8;
+}
+.btn.pushed {
+  position: relative;
+  top: 2px;
+  box-shadow: 0 2px 0 #0088cc;
+}
+.mediaTile {
+  margin-right: -12px;
+}
+.mediaItem {
+  width: 150px;
+  float: left;
+  margin-right: 12px;
+}
+.mediaThumb {
+  border: 1px solid #ddd;
+  height: 150px;
+  width: 150px;
+  overflow: hidden;
+  position: relative;
+}
+.mediaThumb img {
+  position: absolute;
+  top: -100%;
+  right: -100%;
+  bottom: -100%;
+  left: -100%;
+  margin: auto;
+  -webkit-transition: -webkit-transform 0.6s;
+  -moz-transition: -moz-transform 0.6s;
+  -ms-transition: -ms-transform 0.6s;
+  -o-transition: -o-transform 0.6s;
+  transition: transform 0.6s;
+}
+.mediaThumb img:hover {
+  -webkit-transform: scale(1.2);
+  -moz-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  -o-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.mediaTxt {
+
+}

@@ -1,0 +1,63 @@
+<!--パネル-->
+<div class="panel panel-default myPanel mySmallPanel myText">
+
+  <!--ヘッダ-->
+  <div class="panel-heading text-center myPanelTitlebar">
+    複利計算
+  </div>
+
+  <!--ボディ-->
+  <div class="panel-body">
+
+    <!--入力欄-->
+    <p>元本<br>
+      <input
+        type="tel"
+        [(ngModel)]="initValue"> 円
+    </p>
+    <p>金利<br>
+      <input
+        type="tel"
+        [(ngModel)]="rate"> %
+    </p>
+
+    <!--入力済みの場合に表示-->
+    <div *ngIf="initValue && rate">
+
+      <!--結果表示-->
+      <p class="alert alert-info myLargeText text-center">
+        10年後<br>{{calc() | number}}円
+      </p>
+
+      <!--クリアボタン-->
+      <p>
+        <button
+          class="btn btn-warning btn-block myButton"
+          (click)="clear()">クリア
+        </button>
+      </p>
+
+      <!--保存ボタン-->
+      <p>
+        <button
+          class="btn btn-success btn-block myButton"
+          [disabled]="!(initValue && rate)"
+          (click)="save()">保存
+        </button>
+      </p>
+
+      <!--明細表示-->
+      <table>
+        <tr
+          *ngFor="let value of calcArray(); let i = index"
+          class="table table-bordered table table-striped">
+          <td>{{i}}年目</td>
+          <td>{{value | number}}円</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+</div>

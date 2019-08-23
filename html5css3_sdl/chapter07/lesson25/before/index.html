@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<title>サンプル：変形・アニメーション</title>
+<link href="css/base.css" rel="stylesheet" media="all">
+<link href="css/style.css" rel="stylesheet" media="all">
+<!--[if lt IE 9]>
+<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+<![endif]-->
+</head>
+<body>
+<h1>transform / transition</h1>
+
+<section  class="category">
+<h2>Transform［変形］</h2>
+
+<section>
+<h3>translate()</h3>
+<div class="sample">
+<div class="trans01">右へ30px移動</div>
+<div class="trans02">下へ30px移動</div>
+<div class="trans03">右へ30px上へ30px移動</div>
+</div>
+</section>
+
+<section>
+<h3>scale()</h3>
+<div class="sample">
+<div class="scale01">80%に縮小</div>
+<div class="scale02">横を半分に縮小</div>
+<div class="scale03">縦に1.5倍に拡大</div>
+</div>
+</section>
+
+<section>
+<h3>rotate()</h3>
+<div class="sample">
+<div class="rotate01">45度回転</div>
+<div class="rotate02">15度逆回転</div>
+</div>
+</section>
+
+<section>
+<h3>skew()</h3>
+<div class="sample">
+<div class="skew01">X軸方向に30度傾斜</div>
+<div class="skew02">Y軸方向に30度傾斜</div>
+<div class="skew03">X軸・Y軸両方向に30度傾斜</div>
+</div>
+</section>
+</section>
+
+<section class="category">
+<h2>Transform-origin［変形の原点］</h2>
+
+<section>
+<h3>横に伸びるバー</h3>
+<ul class="sample origin">
+<li>のび〜る</li>
+<li>のび〜る</li>
+<li>のび〜る</li>
+</ul>
+</section>
+</section>
+
+<section  class="category">
+<h2>Transition［トランジションアニメーション］</h2>
+
+<section>
+<h3>フワッと色が変わるボタン1（同時）</h3>
+<p class="btn btn01"><a href="#">button</a></p>
+</section>
+
+<section>
+<h3>フワッと色が変わるボタン2（背景色だけ）</h3>
+<p class="btn btn02"><a href="#">button</a></p>
+</section>
+
+<section>
+<h3>フワッと色が変わるボタン3（時間差）</h3>
+<p class="btn btn03"><a href="#">button</a></p>
+</section>
+
+<section>
+<h3>transition-timing-function</h3>
+<ul class="timing">
+<li class="t01">ease</li>
+<li class="t02">linear</li>
+<li class="t03">ease-in</li>
+<li class="t04">ease-out</li>
+<li class="t05">ease-in-out</li>
+</ul>
+</section>
+</section>
+
+
+</body>
+</html>

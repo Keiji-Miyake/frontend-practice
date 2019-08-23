@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+/*簡易リセット */
+*{
+	margin:0;
+	padding:0;
+}
+
+/*基本レイアウト */
+body{
+	margin: 30px;
+}
+
+.wrap{
+	width: 680px;
+}
+
+.rbox01,
+.rbox02,
+.rbox03{
+	margin-bottom:30px;
+}
+
+/*--------------------------
+　角丸囲い枠（画像利用：パターン１）
+---------------------------*/
+.rbox01{
+	padding: 15px;
+	background: url(../img/bg_rbox_body.png) left bottom no-repeat;
+	position: relative;
+}
+
+.rbox01:before{
+	content: "";
+	display: block;
+	width: 680px;
+	height: 10px;
+	background: url(../img/bg_rbox_top.png) no-repeat;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+/*--------------------------
+　角丸囲い枠（画像利用：パターン２）
+---------------------------*/
+
+.rbox02{
+	padding: 15px;
+	background: url(../img/bg_rbox_body02.png) repeat-y;
+	position: relative;
+}
+
+.rbox02:before{
+	content: "";
+	display: block;
+	width: 680px;
+	height: 10px;
+	background: url(../img/bg_rbox_top.png) no-repeat;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.rbox02:after{
+	content: "";
+	display: block;
+	width: 680px;
+	height: 10px;
+	background: url(../img/bg_rbox_btm.png) no-repeat;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+
+/*--------------------------
+　角丸囲い枠（画像利用：パターン３）
+---------------------------*/
+/*上下*/
+.rbox03_top{
+	padding-top: 10px;
+	background: url(../img/bg_rbox_t.png) repeat-x;
+	position: relative;
+}
+.rbox03_btm{
+	padding-bottom: 10px;
+	background: url(../img/bg_rbox_b.png) left bottom repeat-x;
+	position: relative;
+}
+
+/*四隅*/
+.rbox03_top:before,
+.rbox03_top:after,
+.rbox03_btm:before,
+.rbox03_btm:after{
+	content: "";
+	display: block;
+	width: 10px;
+	height: 10px;
+	background-repeat: no-repeat;
+	position: absolute;
+}
+/*左上*/
+.rbox03_top:before{
+	background-image: url(../img/bg_rbox_tl.png);
+	left: 0;
+	top: 0;
+}
+/*右上*/
+.rbox03_top:after{
+	background-image: url(../img/bg_rbox_tr.png);
+	right: 0;
+	top: 0;
+}
+/*左下*/
+.rbox03_btm:before{
+	background-image: url(../img/bg_rbox_bl.png);
+	left: 0;
+	bottom: 0;
+}
+/*右下*/
+.rbox03_btm:after{
+	background-image: url(../img/bg_rbox_br.png);
+	right: 0;
+	bottom: 0;
+}
+
+/*ボディ部*/
+.rbox03_body{
+	padding: 5px 15px;
+	background: #f8ffcf;
+	position: relative;
+}
+/*左右*/
+.rbox03_body:before,
+.rbox03_body:after{
+	content: "";
+	display: block;
+	width: 10px;
+	height: 100%;
+	background-repeat: repeat-y;
+	position: absolute;
+}
+/*左*/
+.rbox03_body:before{
+	background-image: url(../img/bg_rbox_l.png);
+	left: 0;
+	top: 0;
+}
+/*右*/
+.rbox03_body:after{
+	background-image: url(../img/bg_rbox_r.png);
+	right: 0;
+	top: 0;
+}
+
+/*--------------------------
+　角丸囲い枠（border-image）
+---------------------------*/
+.rbox04{
+	padding: 10px;
+	border-image-source: url(../img/bg_rbox.png);
+	border-image-slice: 10 fill;
+	border-image-width: 10px;
+}

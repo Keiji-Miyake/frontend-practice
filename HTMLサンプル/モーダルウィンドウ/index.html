@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>modal</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="styles/index.css">
+  </head>
+  <body>
+    <div id="container">
+      <ul id="modal-thumb"><!--
+        --><li><a href="images/photo-01.JPG" data-index="0"><img alt="" src="images/photo-01.JPG" width="160" class="img-thumbnail"></a></li><!--
+        --><li><a href="images/photo-02.JPG" data-index="1"><img alt="" src="images/photo-02.JPG" width="160" class="img-thumbnail"></a></li><!--
+        --><li><a href="images/photo-03.JPG" data-index="2"><img alt="" src="images/photo-03.JPG" width="160" class="img-thumbnail"></a></li><!--
+      --></ul>
+    </div>
+    <div id="modal">
+      <div id="modal-container">
+        <div id="modal-contents"></div>
+        <div id="modal-close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
+        <div id="modal-prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></div>
+        <div id="modal-next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></div>
+      </div>
+    </div>
+    <div id="modal-overlay"></div>
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>

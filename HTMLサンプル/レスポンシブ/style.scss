@@ -1,0 +1,10 @@
+.mediaQueries {
+    display: none;
+    font-family: 'pc';
+    @media screen and (max-width: 768px) {
+        font-family: 'tab';
+    }
+    @media screen and (max-width: 480px) {
+        font-family: 'sp';
+    }
+}
