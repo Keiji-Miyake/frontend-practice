@@ -1,0 +1,82 @@
+/*==============================*/
+/*　文字　*/
+/*==============================*/
+.myText {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 130%;
+  font-family: sans-serif;
+}
+
+.myLargeText {
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 100%;
+  font-family: sans-serif;
+}
+
+/*==============================*/
+/*パネル */
+/*==============================*/
+
+/*表示位置（水平方向中央）*/
+.myPanel {
+  margin: 0 auto 0 auto;
+  border-width: 2px;
+}
+
+/*パネルのサイズ*/
+.mySmallPanel {
+  width: 320px;
+}
+
+/* タイトルバー*/
+.myPanelTitlebar {
+  background: steelblue none;
+  color: white;
+}
+
+/*入力欄の文字を右寄せ*/
+input {
+  text-align: right;
+  /*vertical-align: middle;*/
+  font-size: 1.5em;
+  width: 80%;
+}
+
+/*==============================*/
+/*ボタン*/
+/*==============================*/
+.myButton {
+  font-size: 1.3em;
+  height: 1.8em;
+  font-weight: bold;
+}
+
+/*==============================*/
+/*表*/
+/*==============================*/
+/*評の幅*/
+table {
+  width: 100%;
+}
+
+/*行の高さ*/
+tr {
+  height: 2em;
+}
+
+/*偶数行目の背景を着色*/
+div tr:nth-child(odd) {
+  background-color: cornsilk;
+}
+
+/*セル内の文字配置*/
+td {
+  text-align: right;
+}
+
+/*1列目の幅*/
+tr td:nth-of-type(1) {
+  width: 30%;
+}

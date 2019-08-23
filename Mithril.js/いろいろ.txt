@@ -1,0 +1,2 @@
+viewでjs
+return m(".content-block[id='content2']", {onload: console.log(ctrl.sales())}, ctrl.sales()[0].name);

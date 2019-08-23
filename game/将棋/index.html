@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <script>
+      var canvas;
+      var ctx;
+      var nametbl = [
+        "玉", "飛", "角", "金", "銀", "桂", "香", "歩",
+        ""  , "竜", "馬", ""  , "全", "圭", "杏", "と"
+      ];
+      var x1 = [ 0, 1, 1, 1, 0, -1, -1, -1,  1, -1]; // x方向の移動量
+      var y1 = [-1,-1, 0, 1, 1,  1,  0, -1, -2, -2]; // y方向の移動量
+      var movtbl = [
+        [ 1,1,1,1,1,1,1,1,0,0 ],   // 0:王将／玉将
+        [ 2,0,2,0,2,0,2,0,0,0 ],   // 1:飛車
+        [ 0,2,0,2,0,2,0,2,0,0 ],   // 2:角行
+        [ 1,1,1,0,1,0,1,1,0,0 ],   // 3:金将
+        [ 1,1,0,1,0,1,0,1,0,0 ],   // 4:銀将
+        [ 0,0,0,0,0,0,0,0,1,1 ],   // 5:桂馬
+        [ 2,0,0,0,0,0,0,0,0,0 ],   // 6:香車
+        [ 1,0,0,0,0,0,0,0,0,0 ],   // 7:歩兵
+        [ 0,0,0,0,0,0,0,0,0,0 ],   // 8:----
+        [ 2,1,2,1,2,1,2,1,0,0 ],   // 9:竜王
+        [ 1,2,1,2,1,2,1,2,0,0 ],   // 10:竜馬
+        [ 0,0,0,0,0,0,0,0,0,0 ],   // 11:----
+        [ 1,1,1,0,1,0,1,1,0,0 ],   // 12:成銀
+        [ 1,1,1,0,1,0,1,1,0,0 ],   // 13:成桂
+        [ 1,1,1,0,1,0,1,1,0,0 ],   // 14:成香
+        [ 1,1,1,0,1,0,1,1,0,0 ],   // 15:と金
+      ];
+      var fillcolor = [ "white", "LightPink", "fuchsia"]; // マスの色
+      var psize = 20; // マスのピクセル数
+
+      function init() {
+        canvas = document.getElementById("world");
+        canvas.width = 800;
+        canvas.height = 600;
+        ctx = canvas.getContest('2d');
+        ctx.font = "16px 'MS Pゴシック'";
+        for(id = 0; id < 16; id++) {
+          cx = (id % 8) * 4 + 2;
+          cy = Math.floor(id / 8) * 6 + 2;
+          movepiece(cx, cy, id);  // 移動可能なマスを描く
+        }
+      }
+
+      function movepiece(startx, starty, id) {
+        ctx.fillStyle = "Khaki";
+        ctx.fillRect(startx * psize, starty * psize, psize - 2, psize - 2);
+        ctx.fillStyle = "black";
+        
+      }
+    </script>
+  </head>
+  <body>
+  
+  </body>
+</html>

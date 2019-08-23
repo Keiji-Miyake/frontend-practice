@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>Firebaseのサンプル</title>
+    <script src="https://www.gstatic.com/firebasejs/3.4.1/firebase.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<div>
+    <input type="text" name="message" id="message" placeholder="メッセージ">
+    <input type="submit" name="send" id="send" value="保存">
+</div>
+<div id="messages">ロード中...</div>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "",
+        authDomain: "",
+        databaseURL: "",
+        storageBucket: "",
+        messagingSenderId: ""
+    };
+    firebase.initializeApp(config);
+    // 「保存」ボタンクリックでデータ保存
+    $('#send').click(function() {
+        firebase.database().ref("messages").push($("#message").val());
+    });
+    // データを読み込んでリストを表示
+    function loadData(snapshot) {
+        var messages = snapshot.val();
+        if (!messages) {
+            $("#messages").text("データがありません");
+            return;
+        }
+        var list = $("<ul>");
+        object.keys(messages).forEach(function (key) {
+            list.prepend($("<li>").text(messages[key]));
+        });
+        $("#messages").empty().append(list);
+    }
+    // messagesコレクションの値が変更されたらloadData()を実行する
+    firebase.database().ref("messages").on("value", loadData);
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  httpd:
+    image: httpd:latest
+    volumes:
+      - ./:/usr/local/apache2/htdocs/
+    ports:
+      - 8080:80
+  node:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: node
+    volumes:
+      - ./:/home/app
+    working_dir: /home/app
+    command: sh
+    tty: true
+    stdin_open: true
+    ports:
+      - 3000:3000

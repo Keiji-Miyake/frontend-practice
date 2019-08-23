@@ -1,0 +1,53 @@
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#container {
+  padding: 40px;
+}
+h1 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.row {
+  margin-top: 2em;
+  display: table;
+  width: 100%;
+}
+.row .col {
+  display: table-cell;
+}
+.row .col:first-child {
+  width: 200px;
+}
+.row .col label {
+  font-weight: bold;
+}
+.row .col input {
+  font-size: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #9e9e9e;
+  padding: 0.5em 0;
+  min-width: 400px;
+}
+.row .col input.error {
+  border-color: #e51c23;
+}
+.row .col ul {
+  margin-top: 0.5em;
+}
+.row .col li {
+  display: none;
+  color: #e51c23;
+  background: url("../images/error.png") no-repeat left center;
+  -webkit-background-size: 12px 12px;
+  -moz-background-size: 12px 12px;
+  background-size: 12px 12px;
+  padding-left: 20px;
+  margin-top: 0.5em;
+}
+.row .col li:first-child {
+  margin-top: 0;
+}
