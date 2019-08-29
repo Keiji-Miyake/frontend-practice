@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <title>Panorama Example</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+  <style>
+    body {
+      margin: 0px;
+      overflow: hidden;
+    }
+    .stage {
+      width: 800px;
+      height: 600px;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="stage" class="stage"></div>
+
+  <script src="./three/three.min.js"></script>
+  <script src="./three/OrbitControls.js"></script>
+
+  <script>
+    (function () {
+
+      // ボックスサイズ取得
+      var width = document.getElementById('stage').clientWidth;
+      var height = document.getElementById('stage').clientHeight;
+
+      var element;
+      var scene, camera, renderer, controls;
+
+      function init() {
+
+        // シーンの作成
+        scene = new THREE.Scene();
+
+        // リサイズイベントを検知してリサイズ処理を実行
+        // window.addEventListener("resize", handleResize, false);
+
+        // カメラの作成
+        camera = new THREE.PerspectiveCamera(90, width / height);
+        camera.position.set(0, 0.1, 0);
+        scene.add(camera);
+
+        // 球体の形状を作成
+        var geometry = new THREE.SphereGeometry(100, 100, 100);
+        geometry.scale(-1, 1, 1);
+
+        // テクスチャ読み込み
+        var texLoader = new THREE.TextureLoader();
+        texLoader.crossOrigin = 'anonymous';
+        var texture = texLoader.load('test.jpg');
+
+        // マテリアルの作成
+        var material = new THREE.MeshBasicMaterial({
+          // 画像をテクスチャとして読み込み
+          map: texture
+        });
+
+        // 球体(形状)にマテリアル(質感)を貼り付けて物体を作成
+        var sphere = new THREE.Mesh(geometry, material);
+
+        // シーンに追加
+        scene.add(sphere);
+
+        // レンダラーの作成
+        renderer = new THREE.WebGLRenderer();
+        // レンダラーをボックスサイズに合わせる
+        renderer.setSize(width, height);
+        renderer.setClearColor({
+          color: 0x000000
+        });
+        element = renderer.domElement;
+        document.getElementById("stage").appendChild(element);
+        renderer.render(scene, camera);
+
+        // デバイスの判別
+        var isAndroid = false;
+        var isIOS = false;
+        if (navigator.userAgent.indexOf("Android") != -1) {
+          // デバイスがAndroidの場合
+          isAndroid = true;
+        } else if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent)) {
+          // デバイスがiOSの場合
+          isIOS = true;
+        }
+        if (isAndroid || isIOS) {
+          // デバイスがスマートフォンまたはタブレット端末の場合
+          // ジャイロセンサーで視点操作を可能にする
+          window.addEventListener("deviceorientation", setOrientationControls, true);
+        } else {
+          // パソコンの場合
+          // マウスドラッグで視点操作を可能にする
+          setOrbitControls();
+        }
+
+        render();
+      }
+
+      // // リサイズ処理
+      // function handleResize() {
+      //   renderer.setSize(window.innerWidth, window.innerHeight);
+      //   camera.aspect = window.innerWidth / window.innerHeight;
+      //   camera.updateProjectionMatrix();
+      // }
+
+
+      function setOrbitControls() {
+        // パソコン閲覧時マウスドラッグで視点操作する
+        controls = new THREE.OrbitControls(camera, element);
+        controls.target.set(
+          camera.position.x + 0.15,
+          camera.position.y,
+          camera.position.z
+        );
+        // 視点操作のイージングをONにする
+        controls.enableDamping = true;
+        // 視点操作のイージングの値
+        controls.dampingFactor = 0.5;
+        // 視点変更の速さ
+        controls.rotateSpeed = 0.5;
+        // ズーム禁止
+        controls.noZoom = false;
+        // パン操作禁止
+        controls.noPan = false;
+      }
+
+      // ジャイロセンサーで視点操作する
+      function setOrientationControls(e) {
+        // スマートフォン以外で処理させない
+        if (!e.alpha) {
+          return;
+        }
+        controls = new THREE.DeviceOrientationControls(camera, true);
+        controls.connect();
+        controls.update();
+        window.removeEventListener("deviceorientation", setOrientationControls, true);
+      }
+
+      function render() {
+        requestAnimationFrame(render);
+        renderer.render(scene, camera);
+        controls.update();
+      }
+
+      window.addEventListener("load", init, false);
+
+    })();
+
+  </script>
+</body>
+
+</html>
