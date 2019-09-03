@@ -19,3 +19,7 @@ docker exec -it node sh
 
 便宜的な変数は「i」「j」などのようにできるだけ短い名前をつけるのが一般的。
 呼び出しの利便性を考慮して、頻繁に呼び出す関数には「$」をつけるケースもある。
+
+### WEB API
+
+Application Programming Interfaces (APIs)

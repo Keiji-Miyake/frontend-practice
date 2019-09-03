@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <style>
+      #drop_zone {
+        background-color: #f6f6f6;
+        border: 2px dashed #bbb;
+        border-radius: 5px;
+        color: #bbb;
+        font: 20pt bold 'Vollkorn';
+        padding: 25px;
+        text-align: center;
+        position: relative;
+      }
+      #files {
+        cursor: pointer;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+</head>
+<body>
+  <div id="drop_zone" class="dropZone">
+    <p>Drop files here</p>
+    <input id="files" type="file" name="files[]" multiple>
+  </div>
+  <output id="list"></output>
+
+  <script>
+    function handleFileSelect(evt) {
+      evt.stopPropagation();
+
+      var files = evt.target.files; // FileList Object
+
+      // files is a FileList of File objects. List some properties.
+      var output = [];
+      var list = document.getElementById('list');
+      for (var i = 0, f; f = files[i]; i++) {
+        output.push('<li><strong>', escape(f.name), '</strong> (', f.type || 'n/a', ') - ',
+                    f.size, ' bytes, last modified: ',
+                    f.lastModifiedDate.toLocaleDateString(), '</li>');
+      }
+      list.innerHTML = '<ul>' + output.join('') + '</ul>';
+      console.log(evt.target.value);
+    }
+
+    // ドロップエリアにマウスインしたときのポインタ変更
+    function handleDragOver(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+      evt.dataTransfer.dropEffect = 'copy'; // Explicitly show this is a copy.
+    }
+
+    // イベントのキャンセル
+    function handleCansel(evt) {
+      evt.stopPropagation();
+      evt.preventDefault();
+    }
+
+    (function () {
+      var dropZone = document.getElementById('drop_zone');
+      var inputFile = document.getElementById('files');
+      // windowへのドロップ禁止
+      window.addEventListener('drop', handleCansel, false);
+      window.addEventListener('dragover', handleCansel, false);
+      // Setup the dnd listeners.
+      dropZone.addEventListener('dragover', handleDragOver, false);
+      // ドロップエリアへのドロップ許可
+      dropZone.addEventListener('drop', function (evt) {evt.stopPropagation();}, false);
+      inputFile.addEventListener('change', handleFileSelect, false);
+    })();
+  </script>
+</body>
+</html>

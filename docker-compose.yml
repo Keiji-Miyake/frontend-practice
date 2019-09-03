@@ -1,13 +1,15 @@
 version: "3.7"
 services:
   node:
-    image: node:lts-alpine
+    build:
+      context: .
+      dockerfile: ./Dockerfile
     container_name: node
-    working_dir: /app
-    restart: always
-    tty: true
     volumes:
-      - .:/app
+      - ./:/usr/src/app:cached
+    working_dir: /usr/src/app
+    command: sh
+    tty: true
+    stdin_open: true
     ports:
       - 3000:3000
-      - 3080:8080

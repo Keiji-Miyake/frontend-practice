@@ -1,3 +1,7 @@
+### Original ###
+!.gitkeep
+coverage/
+
 ### OSX ###
 # General
 .DS_Store
