@@ -6,7 +6,7 @@ frontend練習用
 
 ```bash
 docker-compose up -d
-docker exec -it node sh
+docker exec -it node bash
 ```
 
 http://localhost:8080
