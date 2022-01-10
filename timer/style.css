@@ -1,0 +1,27 @@
+/*  タイマーの表示場所指定   */
+.item {
+    position: relative;
+    float: left;
+}
+
+/*  残量時間を円の中心に合わせ   */
+.timer-time {
+    text-align:center;
+    position: absolute;
+    line-height: 4em;
+    width: 100%;
+    font-size:2.5em;
+}
+
+/*  真上から円を描く指定   */
+svg {
+   -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+/*  円を描く動画の準備   */
+.timer-circle {
+  stroke-dasharray: 280; 
+  stroke-dashoffset: 280;
+  transition: all 1s linear;
+}
